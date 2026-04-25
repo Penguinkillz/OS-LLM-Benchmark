@@ -22,3 +22,6 @@ apps/web/.env*.local
 
 
 *.tsbuildinfo
+
+# Local design reference exports (not part of the app)
+_ref_stitch/
