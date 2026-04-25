@@ -1,6 +1,6 @@
 ﻿const fs = require("fs");
 const path = require("path");
-const base = path.join(__dirname, "apps", "web");
+const base = path.join(__dirname, "..", "..", "apps", "web");
 function w(rel, c) {
   const p = path.join(base, rel);
   fs.mkdirSync(path.dirname(p), { recursive: true });

@@ -1,7 +1,9 @@
-﻿const fs = require("fs");
+const fs = require("fs");
+const path = require("path");
+const webRoot = path.join(__dirname, "..", "..", "apps", "web");
 const w = (rel, c) => {
-  const p = "C:/os-llm-benchmark/apps/web/" + rel;
-  fs.mkdirSync(p.replace(/\/[^/]+$/, ""), { recursive: true });
+  const p = path.join(webRoot, rel);
+  fs.mkdirSync(path.dirname(p), { recursive: true });
   fs.writeFileSync(p, c, "utf8");
 };
 

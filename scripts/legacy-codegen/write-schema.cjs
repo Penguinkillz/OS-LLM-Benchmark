@@ -1,6 +1,6 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const path = require("path");
-const root = "C:/os-llm-benchmark/apps/web";
+const root = path.join(__dirname, "..", "..", "apps", "web");
 function write(rel, content) {
   const p = path.join(root, rel);
   fs.mkdirSync(path.dirname(p), { recursive: true });
