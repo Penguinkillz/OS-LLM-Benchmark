@@ -1,0 +1,24 @@
+﻿node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.next/
+out/
+.env
+.env.local
+.idea/
+Thumbs.db
+*.log
+coverage/
+# Env and secrets (never commit)
+.env.*
+apps/web/.env*.local
+**/.env
+!**/.env.example
+# Python venvs anywhere
+**/.venv/
+**/venv/
+
+
+*.tsbuildinfo

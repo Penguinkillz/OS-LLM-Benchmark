@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: osllm
+      POSTGRES_PASSWORD: osllm
+      POSTGRES_DB: osllm
+    ports:
+      - "5432:5432"
+    volumes:
+      - osllm_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U osllm -d osllm"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  worker:
+    build:
+      context: ./services/benchmark-worker
+    environment:
+      DATABASE_URL: postgresql+psycopg://osllm:osllm@db:5432/osllm
+      REDIS_URL: redis://redis:6379/0
+      # Force cpu|cuda|mps, or auto when unset
+      OSLLM_DEVICE: ${OSLLM_DEVICE:-}
+      HUGGING_FACE_HUB_TOKEN: ${HUGGING_FACE_HUB_TOKEN:-}
+    ports:
+      - "8081:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    # Optional: mount a host directory of HF-style checkpoints, then use local_model_path
+    # volumes:
+    #   - /path/to/models:/models:ro
+
+volumes:
+  osllm_pg: {}
+

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#faf7f2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1a1a1a",
+                        "surface": "#f5f0e8",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1a1a",
+                        "tertiary-fixed-dim": "#a8c6ff",
+                        "on-secondary-container": "#1a1a1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#ffdad6",
+                        "surface-container-high": "#e8e3da",
+                        "on-surface-variant": "#4a4a4a",
+                        "tertiary": "#0055ff",
+                        "on-tertiary-container": "#1a1a1a",
+                        "on-tertiary-fixed": "#1a1a1a",
+                        "secondary-fixed-dim": "#ffb3ab",
+                        "surface-tint": "#1a1a1a",
+                        "inverse-on-surface": "#f5f0e8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eee9e0",
+                        "on-secondary-fixed": "#1a1a1a",
+                        "on-secondary": "#1a1a1a",
+                        "on-primary-container": "#1a1a1a",
+                        "surface-variant": "#e8e3da",
+                        "secondary": "#e63b2e",
+                        "background": "#f5f0e8",
+                        "outline": "#1a1a1a",
+                        "primary-container": "#ffcc00",
+                        "on-background": "#1a1a1a",
+                        "surface-container-low": "#f2ede5",
+                        "tertiary-container": "#d6e3ff",
+                        "surface-dim": "#d6d1c9",
+                        "on-tertiary-fixed-variant": "#1a1a1a",
+                        "error": "#cc0000",
+                        "tertiary-fixed": "#d6e3ff",
+                        "secondary-fixed": "#ffdad6",
+                        "primary-fixed-dim": "#e6b800",
+                        "primary": "#1a1a1a",
+                        "outline-variant": "#d0cbc3",
+                        "on-primary-fixed-variant": "#1a1a1a",
+                        "inverse-primary": "#f5f0e8",
+                        "on-secondary-fixed-variant": "#1a1a1a",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2ddd4",
+                        "inverse-surface": "#1a1a1a",
+                        "primary-fixed": "#ffcc00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neo-brutalist-shadow {
+            box-shadow: 6px 6px 0px 0px #1a1a1a;
+        }
+        .neo-brutalist-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+        .neo-brutalist-shadow-accent {
+            box-shadow: 4px 4px 0px 0px #0055ff;
+        }
+        .isometric-grid {
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#f5f0e8] dark:bg-[#1a1a1a] border-b-4 border-[#1a1a1a] dark:border-[#f5f0e8] shadow-[0px_4px_0px_0px_#1a1a1a] dark:shadow-[0px_4px_0px_0px_#f5f0e8]">
+<div class="text-2xl font-black text-[#1a1a1a] dark:text-[#f5f0e8] underline decoration-[#ffcc00] decoration-4 font-['Space_Grotesk'] tracking-tight">
+            OS-LLM-BENCHMARK
+        </div>
+<nav class="hidden md:flex gap-8 font-['Space_Grotesk'] font-bold uppercase tracking-tight">
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] opacity-70 hover:opacity-100 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-100 active:translate-y-1 active:shadow-none" href="#">Leaderboard</a>
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] opacity-70 hover:opacity-100 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-100 active:translate-y-1 active:shadow-none" href="#">Models</a>
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] opacity-70 hover:opacity-100 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-100 active:translate-y-1 active:shadow-none" href="#">Analysis</a>
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] opacity-70 hover:opacity-100 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-100 active:translate-y-1 active:shadow-none" href="#">Methodology</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="p-2 border-2 border-primary hover:bg-primary-container transition-all active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="p-2 border-2 border-primary hover:bg-primary-container transition-all active:translate-y-1">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+</button>
+</div>
+<button class="px-6 py-2 bg-primary-container text-on-primary-container font-black uppercase border-2 border-primary neo-brutalist-shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+                Get Started
+            </button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-64 bg-[#f5f0e8] dark:bg-[#1a1a1a] border-r-4 border-[#1a1a1a] dark:border-[#f5f0e8] flex flex-col justify-between z-40">
+<div class="p-4">
+<div class="mb-8 px-2">
+<h3 class="text-xl font-black text-[#1a1a1a] dark:text-[#f5f0e8] font-['Space_Grotesk']">BENCHMARK_V1</h3>
+<p class="text-[10px] font-bold opacity-50 uppercase tracking-widest">TECHNICAL_SUITE</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="bg-[#ffcc00] text-[#1a1a1a] border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] m-2 p-3 flex items-center gap-3 font-['Space_Grotesk'] font-bold uppercase text-sm active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Overview
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Models
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+                    Detail
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+                    Analysis
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+                    Leaderboard
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                    Docs
+                </a>
+</nav>
+</div>
+<div class="p-4 border-t-2 border-primary/10">
+<button class="w-full py-3 mb-4 bg-tertiary text-white border-2 border-primary neo-brutalist-shadow-sm font-black uppercase text-sm hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+                Run New Test
+            </button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 p-2 text-xs font-bold uppercase opacity-70 hover:opacity-100" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span> Settings
+                </a>
+<a class="flex items-center gap-3 p-2 text-xs font-bold uppercase opacity-70 hover:opacity-100" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span> Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 relative min-h-screen">
+<!-- Technical Background Visual -->
+<div class="fixed top-20 right-0 w-1/3 h-full pointer-events-none opacity-20 z-0 overflow-hidden">
+<div class="absolute inset-0 isometric-grid"></div>
+<img alt="technical server rack" class="w-full h-full object-cover mix-blend-multiply grayscale" data-alt="abstract 2.5D illustration of server racks in a dark room with glowing blue status lights and technical wireframe overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJqMqWOb-MJBC0hHKvvgKhuTpz-1PHzVcIshbsRgSnMjOscbDoyn_NaBwTn_oaTdxnp5aLW25RyUCkQ55kmnZ9Sx0M2MtrdoQdMlGQbLW90W2Hx8PQA_78OVlshF6nUp1ChThqdqW-qdWBzuYin3X52uhxCeetfyRuJf65cF39g6ZCZg0s78KfUcoSWtuRssTYa0gcPjwoP5RTZa_Fmao47_w7o8VJzzvJu3e5E9V29X4iGnTiRg1xn5vYf2UAVDBuTMocfc-V0rg"/>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<h1 class="text-7xl font-black uppercase leading-none tracking-tighter mb-4">
+                    Dashboard<br/><span class="text-tertiary">Overview</span>
+</h1>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-primary text-white text-xs font-bold uppercase">System Status: Optimal</span>
+<span class="text-xs font-mono font-bold opacity-60">ID: OS-LLM-BNC-2024-X9</span>
+</div>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+<!-- KPI: Running -->
+<div class="bg-surface-bright border-4 border-primary p-6 neo-brutalist-shadow transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="autorenew">autorenew</span>
+<span class="text-xs font-black uppercase px-2 py-1 bg-secondary-container border-2 border-primary">Live</span>
+</div>
+<div class="text-6xl font-black mb-1">12</div>
+<div class="text-sm font-bold uppercase opacity-60">Runs in Progress</div>
+<div class="mt-4 pt-4 border-t-2 border-primary/10 flex items-center justify-between">
+<span class="text-[10px] font-black uppercase">Avg Queue Time: 4.2s</span>
+<div class="w-16 h-2 bg-primary/10 relative">
+<div class="absolute inset-0 bg-secondary w-2/3"></div>
+</div>
+</div>
+</div>
+<!-- KPI: Models -->
+<div class="bg-primary-container border-4 border-primary p-6 neo-brutalist-shadow transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl" data-icon="deployed_code">deployed_code</span>
+<span class="text-xs font-black uppercase px-2 py-1 bg-white border-2 border-primary">Registry</span>
+</div>
+<div class="text-6xl font-black mb-1">142</div>
+<div class="text-sm font-bold uppercase opacity-60">Models Registered</div>
+<div class="mt-4 pt-4 border-t-2 border-primary/10 flex items-center gap-2">
+<span class="text-[10px] font-black uppercase bg-white px-2 border border-primary">+4 This Week</span>
+</div>
+</div>
+<!-- KPI: Total Runs -->
+<div class="bg-white border-4 border-primary p-6 neo-brutalist-shadow transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="equalizer">equalizer</span>
+<span class="text-xs font-black uppercase px-2 py-1 bg-tertiary-container border-2 border-primary">Total</span>
+</div>
+<div class="text-6xl font-black mb-1">8.4k</div>
+<div class="text-sm font-bold uppercase opacity-60">Total Benchmarks</div>
+<div class="mt-4 pt-4 border-t-2 border-primary/10 flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 border-2 border-primary bg-secondary"></div>
+<div class="w-6 h-6 border-2 border-primary bg-primary-container"></div>
+<div class="w-6 h-6 border-2 border-primary bg-tertiary"></div>
+</div>
+<span class="text-[10px] font-black uppercase">Active Nodes</span>
+</div>
+</div>
+</div>
+<!-- Bento Layout for Actions and Data -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Quick Actions -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Action Card: Add Model -->
+<div class="bg-tertiary p-8 border-4 border-primary neo-brutalist-shadow-accent group cursor-pointer active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-white text-5xl mb-6 block" data-icon="add_box">add_box</span>
+<h3 class="text-white text-3xl font-black uppercase leading-tight mb-2">Register<br/>New Model</h3>
+<p class="text-white/80 text-sm font-bold mb-6 uppercase">Upload weights or connect API endpoint for evaluation.</p>
+<div class="flex items-center gap-2 text-white font-black uppercase text-xs">
+                            Start Wizard <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Action Card: Bench -->
+<div class="bg-white p-8 border-4 border-primary neo-brutalist-shadow group cursor-pointer active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 block" data-icon="bolt">bolt</span>
+<h3 class="text-primary text-3xl font-black uppercase leading-tight mb-2">Initiate<br/>Benchmark</h3>
+<p class="text-primary/60 text-sm font-bold mb-6 uppercase">Queue multiple models for comparative analysis.</p>
+<div class="flex items-center gap-2 text-primary font-black uppercase text-xs">
+                            Configure Run <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity / Technical Details -->
+<div class="md:col-span-8 bg-surface-bright border-4 border-primary p-8 neo-brutalist-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-9xl" data-icon="terminal">terminal</span>
+</div>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-4xl font-black uppercase italic">Recent_Activity</h2>
+<p class="text-xs font-bold uppercase opacity-60">System Log v4.0.2</p>
+</div>
+<button class="px-4 py-2 border-2 border-primary text-xs font-black uppercase hover:bg-primary hover:text-white transition-colors">
+                            View Full Log
+                        </button>
+</div>
+<div class="space-y-4">
+<!-- Log Item -->
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-white hover:bg-primary-container transition-colors">
+<div class="w-10 h-10 bg-secondary flex items-center justify-center text-white border-2 border-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="text-sm font-black uppercase">Llama-3-70B-Instruct</span>
+<span class="text-[10px] font-mono font-bold opacity-50">SUCCESS [200 OK]</span>
+</div>
+<div class="text-[10px] font-bold uppercase opacity-60">Benchmark Task: MMLU - Performance Delta +1.2%</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-black uppercase">2m ago</div>
+</div>
+</div>
+<!-- Log Item -->
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-white hover:bg-primary-container transition-colors">
+<div class="w-10 h-10 bg-tertiary flex items-center justify-center text-white border-2 border-primary">
+<span class="material-symbols-outlined" data-icon="pending">pending</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="text-sm font-black uppercase">GPT-4-Turbo-Evaluation</span>
+<span class="text-[10px] font-mono font-bold opacity-50">PROCESSING</span>
+</div>
+<div class="text-[10px] font-bold uppercase opacity-60">Benchmark Task: HumanEval - Iteration 4/10</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-black uppercase">8m ago</div>
+</div>
+</div>
+<!-- Log Item -->
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-white hover:bg-primary-container transition-colors opacity-50">
+<div class="w-10 h-10 bg-primary flex items-center justify-center text-white border-2 border-primary">
+<span class="material-symbols-outlined" data-icon="error">error</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="text-sm font-black uppercase">Mistral-Large-v2</span>
+<span class="text-[10px] font-mono font-bold opacity-50">TIMEOUT [408]</span>
+</div>
+<div class="text-[10px] font-bold uppercase opacity-60">Benchmark Task: GSM8K - Retrying in 300s</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-black uppercase">14m ago</div>
+</div>
+</div>
+<!-- Log Item -->
+<div class="flex items-center gap-4 p-4 border-2 border-primary bg-white hover:bg-primary-container transition-colors">
+<div class="w-10 h-10 bg-secondary flex items-center justify-center text-white border-2 border-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="text-sm font-black uppercase">Claude-3-Opus-Analysis</span>
+<span class="text-[10px] font-mono font-bold opacity-50">SUCCESS [200 OK]</span>
+</div>
+<div class="text-[10px] font-bold uppercase opacity-60">Benchmark Task: ARC-Challenge - Top Score recorded</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-black uppercase">22m ago</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Grid Metrics -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="bg-white border-2 border-primary p-4 neo-brutalist-shadow-sm">
+<div class="text-[10px] font-black uppercase opacity-60 mb-1">Compute Load</div>
+<div class="text-2xl font-black">74.2%</div>
+<div class="w-full h-1 bg-primary/10 mt-2">
+<div class="bg-primary h-full w-[74%]"></div>
+</div>
+</div>
+<div class="bg-white border-2 border-primary p-4 neo-brutalist-shadow-sm">
+<div class="text-[10px] font-black uppercase opacity-60 mb-1">Network Latency</div>
+<div class="text-2xl font-black">12ms</div>
+<div class="w-full h-1 bg-primary/10 mt-2">
+<div class="bg-tertiary h-full w-[15%]"></div>
+</div>
+</div>
+<div class="bg-white border-2 border-primary p-4 neo-brutalist-shadow-sm">
+<div class="text-[10px] font-black uppercase opacity-60 mb-1">Memory Usage</div>
+<div class="text-2xl font-black">1.4TB</div>
+<div class="w-full h-1 bg-primary/10 mt-2">
+<div class="bg-secondary h-full w-[88%]"></div>
+</div>
+</div>
+<div class="bg-white border-2 border-primary p-4 neo-brutalist-shadow-sm">
+<div class="text-[10px] font-black uppercase opacity-60 mb-1">Queue Depth</div>
+<div class="text-2xl font-black">04</div>
+<div class="w-full h-1 bg-primary/10 mt-2">
+<div class="bg-primary-container h-full w-[10%]"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Brutalist Footer -->
+<footer class="ml-64 p-8 border-t-4 border-primary flex justify-between items-center bg-surface-container">
+<div class="text-[10px] font-black uppercase tracking-tighter">
+            © 2024 OS-LLM-BENCHMARK_SUITE // SYSTEM_READY
+        </div>
+<div class="flex gap-4">
+<span class="w-3 h-3 bg-secondary rounded-full"></span>
+<span class="w-3 h-3 bg-primary-container rounded-full"></span>
+<span class="w-3 h-3 bg-tertiary rounded-full"></span>
+</div>
+</footer>
+</body></html>

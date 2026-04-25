@@ -1,0 +1,2 @@
+# Dev / CI: tests for the worker (not needed for production)
+pytest>=8.0.0

@@ -1,0 +1,14 @@
+-- Run parameters, error handling, in-flight runs
+ALTER TABLE runs
+  ADD COLUMN IF NOT EXISTS run_params JSONB NOT NULL DEFAULT '{}'::jsonb;
+ALTER TABLE runs
+  ADD COLUMN IF NOT EXISTS error_message TEXT;
+ALTER TABLE runs
+  ADD COLUMN IF NOT EXISTS p50_ms DOUBLE PRECISION;
+ALTER TABLE runs
+  ADD COLUMN IF NOT EXISTS p99_ms DOUBLE PRECISION;
+ALTER TABLE runs
+  ADD COLUMN IF NOT EXISTS ttft_p95_ms DOUBLE PRECISION;
+ALTER TABLE runs
+  ALTER COLUMN finished_at DROP NOT NULL;
+UPDATE runs SET finished_at = started_at WHERE finished_at IS NULL;

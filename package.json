@@ -1,0 +1,11 @@
+{
+  "name": "os-llm-benchmark",
+  "private": true,
+  "packageManager": "npm@10.9.0",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspace=apps/web",
+    "lint": "npm run lint --workspace=apps/web"
+  }
+}

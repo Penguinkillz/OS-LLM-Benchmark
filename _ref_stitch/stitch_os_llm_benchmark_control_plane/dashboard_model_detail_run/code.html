@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Model Detail - OS-LLM-BENCHMARK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#faf7f2",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1a1a1a",
+                        "surface": "#f5f0e8",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1a1a",
+                        "tertiary-fixed-dim": "#a8c6ff",
+                        "on-secondary-container": "#1a1a1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#ffdad6",
+                        "surface-container-high": "#e8e3da",
+                        "on-surface-variant": "#4a4a4a",
+                        "tertiary": "#0055ff",
+                        "on-tertiary-container": "#1a1a1a",
+                        "on-tertiary-fixed": "#1a1a1a",
+                        "secondary-fixed-dim": "#ffb3ab",
+                        "surface-tint": "#1a1a1a",
+                        "inverse-on-surface": "#f5f0e8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eee9e0",
+                        "on-secondary-fixed": "#1a1a1a",
+                        "on-secondary": "#1a1a1a",
+                        "on-primary-container": "#1a1a1a",
+                        "surface-variant": "#e8e3da",
+                        "secondary": "#e63b2e",
+                        "background": "#f5f0e8",
+                        "outline": "#1a1a1a",
+                        "primary-container": "#ffcc00",
+                        "on-background": "#1a1a1a",
+                        "surface-container-low": "#f2ede5",
+                        "tertiary-container": "#d6e3ff",
+                        "surface-dim": "#d6d1c9",
+                        "on-tertiary-fixed-variant": "#1a1a1a",
+                        "error": "#cc0000",
+                        "tertiary-fixed": "#d6e3ff",
+                        "secondary-fixed": "#ffdad6",
+                        "primary-fixed-dim": "#e6b800",
+                        "primary": "#1a1a1a",
+                        "outline-variant": "#d0cbc3",
+                        "on-primary-fixed-variant": "#1a1a1a",
+                        "inverse-primary": "#f5f0e8",
+                        "on-secondary-fixed-variant": "#1a1a1a",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2ddd4",
+                        "inverse-surface": "#1a1a1a",
+                        "primary-fixed": "#ffcc00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neo-shadow {
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+        .neo-shadow-lg {
+            box-shadow: 8px 8px 0px 0px #1a1a1a;
+        }
+        .glow-ok { box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); }
+        .glow-caution { box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); }
+        .glow-critical { box-shadow: 0 0 15px rgba(230, 59, 46, 0.5); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#f5f0e8] dark:bg-[#1a1a1a] border-b-4 border-[#1a1a1a] dark:border-[#f5f0e8] shadow-[0px_4px_0px_0px_#1a1a1a] dark:shadow-[0px_4px_0px_0px_#f5f0e8]">
+<div class="text-2xl font-black text-[#1a1a1a] dark:text-[#f5f0e8] underline decoration-[#ffcc00] decoration-4 font-['Space_Grotesk'] uppercase tracking-tight">
+            OS-LLM-BENCHMARK
+        </div>
+<nav class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-bold uppercase tracking-tight">
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] opacity-70 hover:opacity-100 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-100 px-2 py-1" href="#">Leaderboard</a>
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] border-b-4 border-[#ffcc00] pb-1" href="#">Models</a>
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] opacity-70 hover:opacity-100 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-100 px-2 py-1" href="#">Analysis</a>
+<a class="text-[#1a1a1a] dark:text-[#f5f0e8] opacity-70 hover:opacity-100 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-100 px-2 py-1" href="#">Methodology</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] p-2 border-2 border-transparent hover:border-[#1a1a1a] cursor-pointer">terminal</span>
+<span class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] p-2 border-2 border-transparent hover:border-[#1a1a1a] cursor-pointer">database</span>
+<button class="bg-[#ffcc00] text-[#1a1a1a] px-6 py-2 border-2 border-[#1a1a1a] font-bold uppercase tracking-tight neo-shadow active:translate-y-1 active:shadow-none transition-all">Get Started</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-64 border-r-4 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#f5f0e8] dark:bg-[#1a1a1a] flex flex-col justify-between z-40">
+<div class="p-4">
+<div class="mb-8 px-2">
+<div class="text-xl font-black text-[#1a1a1a] dark:text-[#f5f0e8] font-['Space_Grotesk'] uppercase">BENCHMARK_V1</div>
+<div class="text-[10px] font-bold text-on-surface-variant opacity-60">TECHNICAL_SUITE</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined">dashboard</span> Overview
+                </a>
+<a class="bg-[#ffcc00] text-[#1a1a1a] border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] m-2 p-3 flex items-center gap-3 font-['Space_Grotesk'] font-bold uppercase text-sm" href="#">
+<span class="material-symbols-outlined">analytics</span> Models
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined">query_stats</span> Detail
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined">biotech</span> Analysis
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined">leaderboard</span> Leaderboard
+                </a>
+<a class="flex items-center gap-3 p-3 m-2 border-2 border-transparent hover:border-[#1a1a1a] dark:hover:border-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase text-sm hover:bg-[#0055ff] hover:text-white transition-transform hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined">menu_book</span> Docs
+                </a>
+</nav>
+</div>
+<div class="p-4 border-t-2 border-[#1a1a1a] dark:border-[#f5f0e8]">
+<button class="w-full bg-[#e63b2e] text-white border-2 border-[#1a1a1a] p-3 mb-4 font-bold uppercase neo-shadow hover:translate-x-1 active:translate-y-1 active:shadow-none transition-all">Run New Test</button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 p-2 font-['Space_Grotesk'] font-bold uppercase text-xs opacity-70 hover:opacity-100" href="#">
+<span class="material-symbols-outlined text-sm">settings</span> Settings
+                </a>
+<a class="flex items-center gap-3 p-2 font-['Space_Grotesk'] font-bold uppercase text-xs opacity-70 hover:opacity-100" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Header Section -->
+<div class="mb-12">
+<div class="flex items-baseline gap-4 mb-2">
+<h1 class="text-7xl font-black font-headline uppercase leading-none tracking-tighter">LLAMA-3-70B</h1>
+<span class="bg-tertiary text-white px-3 py-1 font-bold uppercase text-lg border-2 border-primary neo-shadow">PRO_MAX</span>
+</div>
+<p class="text-2xl font-bold font-headline uppercase max-w-2xl border-l-8 border-primary-container pl-4">META-AI OPEN SOURCE ARCHITECTURE. OPTIMIZED FOR QUANTIZED INFERENCE ON NEURAL ENGINE V4.</p>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Configuration Form -->
+<div class="col-span-12 lg:col-span-7 space-y-8">
+<section class="bg-surface-bright border-4 border-primary p-8 neo-shadow-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 font-bold uppercase text-xs">CONFIG_UNIT_01</div>
+<h2 class="text-3xl font-black font-headline uppercase mb-8 border-b-4 border-primary inline-block">BENCHMARK_SPEC</h2>
+<form class="space-y-10">
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="block font-headline font-black uppercase text-sm tracking-widest">TEST_PROFILE</label>
+<select class="w-full bg-transparent border-b-4 border-primary rounded-none font-bold p-2 focus:ring-0 focus:border-tertiary transition-colors appearance-none">
+<option>COMPLEX_REASONING_V2</option>
+<option>CREATIVE_WRITING_STRESS</option>
+<option>MATHEMATICAL_LOGIC</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block font-headline font-black uppercase text-sm tracking-widest">BATCH_SIZE</label>
+<input class="w-full bg-transparent border-b-4 border-primary rounded-none font-bold p-2 focus:ring-0 focus:border-tertiary transition-colors" type="number" value="128"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="block font-headline font-black uppercase text-sm tracking-widest">PRECISION_MODE</label>
+<div class="flex gap-4">
+<button class="flex-1 border-2 border-primary p-3 font-bold bg-primary-container neo-shadow" type="button">INT8</button>
+<button class="flex-1 border-2 border-primary p-3 font-bold hover:bg-surface-container transition-colors" type="button">FP16</button>
+<button class="flex-1 border-2 border-primary p-3 font-bold hover:bg-surface-container transition-colors" type="button">BF16</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-headline font-black uppercase text-sm tracking-widest">TEMPERATURE</label>
+<input class="w-full h-2 bg-surface-container-highest appearance-none cursor-pointer border-2 border-primary" max="200" min="0" type="range" value="70"/>
+<div class="flex justify-between text-xs font-black"><span>0.0</span><span>1.0</span><span>2.0</span></div>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block font-headline font-black uppercase text-sm tracking-widest">SYSTEM_PROMPT_OVERRIDE</label>
+<textarea class="w-full bg-surface-container-low border-4 border-primary rounded-none p-4 font-mono text-sm focus:ring-0 focus:border-tertiary" placeholder="Enter custom system constraints..." rows="4"></textarea>
+</div>
+<div class="flex justify-end gap-4 pt-4">
+<button class="px-8 py-4 border-4 border-primary font-black uppercase hover:bg-surface-variant transition-colors" type="button">RESET_PARAMS</button>
+<button class="px-12 py-4 bg-tertiary text-white border-4 border-primary font-black uppercase neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" type="button">INITIALIZE_RUN</button>
+</div>
+</form>
+</section>
+<!-- Model Stats Bento -->
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-primary text-white p-4 neo-shadow">
+<div class="text-[10px] font-black opacity-60 uppercase mb-2">PARAMETER_COUNT</div>
+<div class="text-4xl font-black font-headline">70.6B</div>
+</div>
+<div class="bg-white border-4 border-primary p-4 neo-shadow">
+<div class="text-[10px] font-black opacity-60 uppercase mb-2">CTX_WINDOW</div>
+<div class="text-4xl font-black font-headline text-tertiary">128K</div>
+</div>
+<div class="bg-primary-container border-4 border-primary p-4 neo-shadow">
+<div class="text-[10px] font-black opacity-60 uppercase mb-2">LATENCY_AVG</div>
+<div class="text-4xl font-black font-headline">42MS</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Mission Control Risk Analysis -->
+<div class="col-span-12 lg:col-span-5 space-y-8">
+<section class="bg-primary text-white p-8 border-4 border-primary relative">
+<h2 class="text-2xl font-black font-headline uppercase mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">security</span>
+                        MISSION_CONTROL_RISK
+                    </h2>
+<div class="space-y-6">
+<!-- Risk Item 1 -->
+<div class="border-2 border-white/20 p-4 relative overflow-hidden">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline font-black text-xs tracking-widest uppercase">HARDWARE_THERMAL_LOAD</span>
+<span class="bg-green-500 text-black px-2 py-0.5 text-[10px] font-bold glow-ok">STATUS_OK</span>
+</div>
+<div class="h-2 w-full bg-white/10 overflow-hidden">
+<div class="h-full bg-green-500 w-[42%]"></div>
+</div>
+<div class="mt-2 text-[10px] opacity-60 font-mono italic">OPERATING_WITHIN_NOMINAL_RANGE_34C</div>
+</div>
+<!-- Risk Item 2 -->
+<div class="border-2 border-white/20 p-4 relative bg-white/5">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline font-black text-xs tracking-widest uppercase">MEMORY_ALLOCATION_LIMIT</span>
+<span class="bg-primary-container text-black px-2 py-0.5 text-[10px] font-bold glow-caution">STATUS_CAUTION</span>
+</div>
+<div class="h-2 w-full bg-white/10 overflow-hidden">
+<div class="h-full bg-primary-container w-[88%]"></div>
+</div>
+<div class="mt-2 text-[10px] text-primary-container font-mono font-bold">VRAM_UTILIZATION_CRITICAL_NEAR_CAPACITY</div>
+</div>
+<!-- Risk Item 3 -->
+<div class="border-4 border-secondary p-4 relative bg-secondary/10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline font-black text-xs tracking-widest uppercase">INFERENCE_DRIFT_PROB</span>
+<span class="bg-secondary text-white px-2 py-0.5 text-[10px] font-bold glow-critical">STATUS_CRITICAL</span>
+</div>
+<div class="h-2 w-full bg-white/10 overflow-hidden">
+<div class="h-full bg-secondary w-[94%] animate-pulse"></div>
+</div>
+<div class="mt-2 text-[10px] text-secondary font-mono font-black uppercase">HIGH_PROBABILITY_OF_HALLUCINATION_DETECTED</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t-2 border-white/20">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/5 p-4 border-2 border-white/10">
+<div class="text-[10px] font-black uppercase mb-1">SAFETY_SCORE</div>
+<div class="text-3xl font-black text-primary-container">0.92</div>
+</div>
+<div class="bg-white/5 p-4 border-2 border-white/10">
+<div class="text-[10px] font-black uppercase mb-1">STABILITY_RT</div>
+<div class="text-3xl font-black text-secondary">0.64</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Blueprint Image -->
+<div class="border-4 border-primary bg-white h-64 relative group overflow-hidden neo-shadow">
+<img alt="Technical neural network diagram" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" data-alt="abstract monochromatic neural network architecture visualization with nodes and sharp geometric connections on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqL2l1Zt6yNiL5U1wx9u2RXZBItgFSrFReQhcytbjctV8cimkt0pnGYjy52e2r974wwbIyTuSAP9XmP3FqIT285Muw_3CpSwJU1iYeZD5eEfaTIqDZkPRA9ckDhB8fDHX8XEeEC9kpvCHLj0dsz8tki0Ofoe5JjQh0Gb3nYUjXU26gK1OVcwWNA9ZjpVjtlPXeJUDBGrHZLkp8LHtCc5FAGGzWa13LsqLSKxICVO3WgYiXqY9s4ScX0kOUkYnXOFUSsiZYYzkjypU"/>
+<div class="absolute inset-0 bg-primary/20 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 bg-primary text-white px-3 py-1 font-black text-[10px] uppercase">ARCH_VISUAL_09A</div>
+</div>
+<!-- Logs Ticker -->
+<div class="bg-surface-container border-4 border-primary p-4 font-mono text-[10px] h-40 overflow-hidden relative">
+<div class="absolute top-0 right-0 bg-primary text-white px-2 py-0.5">LIVE_LOGS</div>
+<div class="space-y-1 opacity-70">
+<p>[14:02:11] INITIALIZING CUDA_KERNEL_0x0421...</p>
+<p>[14:02:12] MAPPING TENSOR_VECTORS TO VRAM_BLOCKS...</p>
+<p class="text-secondary font-bold">[14:02:14] WARN: JIT_COMPILER_RETRY_COUNT_EXCEEDED</p>
+<p>[14:02:15] SHARDING_STRATEGY: DISTRIBUTED_DATA_PARALLEL</p>
+<p>[14:02:17] READY_FOR_INFERENCE_REQUEST</p>
+<p>[14:02:18] HANDSHAKE_ESTABLISHED_LOCAL_HOST:8888</p>
+<p>[14:02:19] POLLING_TELEMETRY_DATA...</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

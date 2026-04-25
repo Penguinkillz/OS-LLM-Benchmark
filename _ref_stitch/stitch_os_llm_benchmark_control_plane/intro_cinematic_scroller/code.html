@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#1a1a1a", "on-primary-fixed": "#1a1a1a", "secondary-fixed-dim": "#ffb3ab", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "inverse-on-surface": "#f5f0e8", "surface-container": "#eee9e0", "primary-container": "#ffcc00", "inverse-surface": "#1a1a1a", outline: "#1a1a1a", "on-secondary-container": "#1a1a1a", "primary-fixed-dim": "#e6b800", "on-primary-container": "#1a1a1a", secondary: "#e63b2e", error: "#cc0000", "on-primary": "#ffffff", "on-surface-variant": "#4a4a4a", tertiary: "#0055ff", "on-surface": "#1a1a1a", "surface-bright": "#faf7f2", "outline-variant": "#d0cbc3", "on-tertiary-fixed": "#1a1a1a", "on-error-container": "#93000a", "tertiary-fixed": "#d6e3ff", "surface-container-lowest": "#ffffff", "primary-fixed": "#ffcc00", "on-tertiary-fixed-variant": "#1a1a1a", "surface-container-highest": "#e2ddd4", "on-primary-fixed-variant": "#1a1a1a", "on-secondary-fixed": "#1a1a1a", "surface-tint": "#1a1a1a", "secondary-fixed": "#ffdad6", "on-secondary": "#1a1a1a", "surface-container-high": "#e8e3da", "on-tertiary-container": "#1a1a1a", "surface-dim": "#d6d1c9", "surface-variant": "#e8e3da", "secondary-container": "#ffdad6", "tertiary-container": "#d6e3ff", surface: "#f5f0e8", "on-error": "#ffffff", background: "#f5f0e8", "on-secondary-fixed-variant": "#1a1a1a", "inverse-primary": "#f5f0e8", "tertiary-fixed-dim": "#a8c6ff", "on-background": "#1a1a1a", "surface-container-low": "#f2ede5"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {md: "24px", base: "4px", xs: "8px", "border-thick": "4px", lg: "40px", xl: "64px", gutter: "2px", sm: "16px", "border-thin": "2px"}, fontFamily: {display: ["Space Grotesk"], h3: ["Space Grotesk"], "mono-data": ["Space Grotesk"], "label-caps": ["Space Grotesk"], h2: ["Space Grotesk"], h1: ["Space Grotesk"], "body-lg": ["Space Grotesk"], "body-md": ["Space Grotesk"], headline: ["Space Grotesk"], body: ["Inter"], label: ["Space Grotesk"]}, fontSize: {}}}};</script>
+<style>
+        body { background-color: #0a0a0a; color: #e5e2e1; overflow-x: hidden; }
+        .grid-bg {
+            background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+                              linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .scanline {
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0) 100%);
+            height: 10px;
+            width: 100%;
+            position: absolute;
+            z-index: 10;
+        }
+        .neo-shadow {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Anchor -->
+<nav class="fixed top-0 w-full border-b-2 border-zinc-800 z-50 flex justify-between items-center h-16 px-6 bg-[#0a0a0a]">
+<div class="text-xl font-black tracking-widest text-[#ffcc00] border-r-2 border-[#ffcc00] pr-6 font-['Space_Grotesk'] uppercase">
+            OS-LLM-BENCHMARK
+        </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#ffcc00] border-b-4 border-[#ffcc00] font-mono text-xs uppercase tracking-widest px-2 py-1" href="#">DASHBOARD</a>
+<a class="text-zinc-500 font-mono text-xs uppercase tracking-widest px-2 py-1 hover:text-[#ffcc00] transition-none" href="#">MODELS</a>
+<a class="text-zinc-500 font-mono text-xs uppercase tracking-widest px-2 py-1 hover:text-[#ffcc00] transition-none" href="#">LATENCY</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-zinc-900 border-2 border-zinc-800 px-3 py-1 items-center gap-2">
+<span class="material-symbols-outlined text-zinc-500 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-mono text-primary w-48 uppercase" placeholder="QUERY_SYSTEM..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center border-2 border-zinc-800 hover:bg-[#ffcc00] hover:text-black transition-none active:translate-y-[2px]">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center border-2 border-zinc-800 hover:bg-[#ffcc00] hover:text-black transition-none active:translate-y-[2px]">
+<span class="material-symbols-outlined">terminal</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 border-r-2 border-zinc-800 bg-[#0a0a0a] hidden lg:flex flex-col py-4 z-40">
+<div class="px-6 mb-8">
+<div class="text-[#ffcc00] font-mono text-xs uppercase tracking-widest font-bold">CONTROL_PLANE</div>
+<div class="text-zinc-600 font-mono text-[10px] tracking-tight">V2.4.0_STABLE</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-3 bg-[#ffcc00] text-black font-bold border-l-4 border-secondary-container transition-none scale-x-[1.02]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-mono text-xs uppercase tracking-widest">DASHBOARD</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-400 hover:text-white border-l-4 border-transparent hover:bg-zinc-900 transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+<span class="font-mono text-xs uppercase tracking-widest">MODELS</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-400 hover:text-white border-l-4 border-transparent hover:bg-zinc-900 transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+<span class="font-mono text-xs uppercase tracking-widest">LATENCY</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-400 hover:text-white border-l-4 border-transparent hover:bg-zinc-900 transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="font-mono text-xs uppercase tracking-widest">THROUGHPUT</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-400 hover:text-white border-l-4 border-transparent hover:bg-zinc-900 transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="developer_board">developer_board</span>
+<span class="font-mono text-xs uppercase tracking-widest">HARDWARE</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-400 hover:text-white border-l-4 border-transparent hover:bg-zinc-900 transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-mono text-xs uppercase tracking-widest">LOGS</span>
+</a>
+</nav>
+<div class="mt-auto border-t-2 border-zinc-800 pt-4">
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-400 hover:text-white transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-mono text-xs uppercase tracking-widest">DOCS</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-400 hover:text-white transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-mono text-xs uppercase tracking-widest">SUPPORT</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:pl-64 pt-16 min-h-screen grid-bg relative">
+<!-- Floating HUD Element -->
+<div class="absolute top-20 right-8 z-20 hidden xl:block">
+<div class="bg-zinc-900 border-2 border-[#ffcc00] p-4 neo-shadow">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2 h-2 bg-[#ffcc00] animate-pulse"></div>
+<span class="font-mono text-[10px] text-[#ffcc00] font-bold">SYSTEM_HEALTH: OPTIMAL</span>
+</div>
+<div class="space-y-1">
+<div class="w-32 h-1 bg-zinc-800"><div class="w-3/4 h-full bg-secondary-container"></div></div>
+<div class="w-32 h-1 bg-zinc-800"><div class="w-1/2 h-full bg-[#ffcc00]"></div></div>
+<div class="w-32 h-1 bg-zinc-800"><div class="w-2/3 h-full bg-white"></div></div>
+</div>
+</div>
+</div>
+<!-- Cinematic Hero / Intro Section -->
+<section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-md">
+<!-- 2.5D Animated Neural Processor Reference -->
+<div class="relative w-full max-w-2xl aspect-square flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent z-10"></div>
+<!-- Central Element Wrapper -->
+<div class="relative group">
+<div class="absolute -inset-8 border-4 border-[#ffcc00] opacity-20 group-hover:opacity-40 transition-opacity"></div>
+<div class="absolute -inset-16 border-2 border-secondary-container opacity-10"></div>
+<img alt="neural processor architectural visualization" class="w-80 h-80 object-contain drop-shadow-[0_0_50px_rgba(255,204,0,0.2)]" data-alt="3D isometric visualization of a futuristic neural processor with glowing gold circuitry paths on a matte black ceramic base" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7vFCmzqQRmPIgsuvnq3LvG4uJhHSRWzp_3lEr7dj5pR3fXr41nIpH7FFGsjLX_9vv3mVI0oezVT-OeDFqjXcNAD8TWiZjlPPBXs4KVMChs8npjg66jzkjTqf5tSPgcIZE0Yf2J3yL-f2slYaqli5GhKwQBY8ak90flbRNkFydjGQ1npoA0fmZ0g1YaSPbRP4hljQY-X-VbUPXvIW-yPmKqNoO17VVloooxRtQ-tz39LtZ65hcDR6xZlUWADyhgo9ImSlPylBs6j8"/>
+</div>
+<!-- Floating Data Chips -->
+<div class="absolute top-1/4 left-10 p-2 bg-zinc-900 border-2 border-white font-mono text-[10px] uppercase tracking-tighter">
+<span class="text-secondary-container">THROUGHPUT:</span> 1.2M T/S
+                </div>
+<div class="absolute bottom-1/4 right-10 p-2 bg-zinc-900 border-2 border-white font-mono text-[10px] uppercase tracking-tighter">
+<span class="text-[#ffcc00]">LATENCY:</span> 14.2MS
+                </div>
+</div>
+<!-- Title Section with Glitch/Precision reveal styling -->
+<div class="text-center mt-12 z-20">
+<h1 class="font-display text-h1 text-white tracking-tighter uppercase mb-2">
+                    OS-<span class="text-[#ffcc00]">LLM</span>-BENCHMARK
+                </h1>
+<p class="font-mono text-label-caps text-zinc-500 max-w-xl mx-auto">
+                    ADVANCED EVALUATION PROTOCOLS FOR NEXT-GENERATION LARGE LANGUAGE MODELS. UNCOMPROMISING DATA PRECISION.
+                </p>
+<div class="mt-xl flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-[#ffcc00] text-black font-display font-bold text-body-md px-10 py-4 border-2 border-black hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_#ffffff] transition-all uppercase">
+                        INITIALIZE_CORE
+                    </button>
+<button class="border-2 border-white text-white font-display font-bold text-body-md px-10 py-4 hover:bg-white hover:text-black transition-all uppercase">
+                        VIEW_DOCUMENTATION
+                    </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+<span class="font-mono text-[10px] tracking-widest text-zinc-500">SCROLL_TO_ANALYZE</span>
+<div class="w-[2px] h-12 bg-gradient-to-b from-[#ffcc00] to-transparent"></div>
+</div>
+</section>
+<!-- Bento Grid Data Section -->
+<section class="p-md md:p-xl grid grid-cols-1 md:grid-cols-12 gap-gutter bg-zinc-900 border-t-4 border-zinc-800">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 bg-[#0a0a0a] border-2 border-zinc-800 p-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between items-start mb-lg">
+<div class="bg-secondary-container text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">OPERATIONAL_METRICS</div>
+<span class="material-symbols-outlined text-zinc-700 text-4xl">insights</span>
+</div>
+<h2 class="font-display text-h2 text-white mb-sm">REAL-TIME INFERENCE ENGINE</h2>
+<p class="font-body-md text-zinc-400 max-w-lg">Track multi-modal performance across disparate hardware architectures with microsecond precision. Our telemetry engine captures over 400 unique data points per token generation.</p>
+</div>
+<div class="mt-xl flex items-end gap-2">
+<div class="w-1/3 h-24 bg-zinc-900 border-2 border-zinc-800 p-2">
+<div class="h-full bg-secondary-container w-1/2"></div>
+</div>
+<div class="w-1/3 h-32 bg-zinc-900 border-2 border-zinc-800 p-2">
+<div class="h-full bg-[#ffcc00] w-3/4"></div>
+</div>
+<div class="w-1/3 h-20 bg-zinc-900 border-2 border-zinc-800 p-2">
+<div class="h-full bg-white w-1/4"></div>
+</div>
+</div>
+</div>
+<!-- Side Metric Card -->
+<div class="md:col-span-4 bg-[#ffcc00] text-black border-2 border-black p-md flex flex-col justify-between">
+<div class="font-mono text-label-caps mb-md">LATENCY_THRESHOLD</div>
+<div class="text-display font-black leading-none">-42<span class="text-4xl">%</span></div>
+<div class="mt-md font-body-md font-bold uppercase tracking-tight">
+                    Average overhead reduction compared to legacy benchmarking suites.
+                </div>
+<button class="mt-xl w-full border-2 border-black py-4 font-bold flex justify-between px-4 hover:bg-black hover:text-white transition-none">
+<span>RUN_TEST_SEQUENCE</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Bottom Row Features -->
+<div class="md:col-span-4 bg-[#0a0a0a] border-2 border-zinc-800 p-md">
+<div class="w-12 h-12 flex items-center justify-center bg-zinc-900 border-2 border-white mb-md">
+<span class="material-symbols-outlined text-white">memory</span>
+</div>
+<h3 class="font-display text-h3 text-white mb-xs">VRAM_DYNAMICS</h3>
+<p class="font-mono text-xs text-zinc-500">Intelligent memory allocation mapping for distributed quantizations.</p>
+</div>
+<div class="md:col-span-4 bg-[#0a0a0a] border-2 border-zinc-800 p-md">
+<div class="w-12 h-12 flex items-center justify-center bg-zinc-900 border-2 border-secondary-container mb-md">
+<span class="material-symbols-outlined text-secondary-container">bolt</span>
+</div>
+<h3 class="font-display text-h3 text-white mb-xs">THROUGHPUT_X</h3>
+<p class="font-mono text-xs text-zinc-500">Saturate your tensor cores with optimized batch-processing analytics.</p>
+</div>
+<div class="md:col-span-4 bg-[#0a0a0a] border-2 border-zinc-800 p-md relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<img alt="abstract data visualization" class="w-full h-full object-cover" data-alt="close-up of a digital display showing high-density monochrome telemetry data and scrolling code strings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw-rpeIEVTsf4FSjis1qEzQWaqohynYbnpf06X3iU5J-9mrIxUNAWxOF3AADj5O-PZI3WaT9zHUnZu_00DsgweJw1XfBFG6H5_yNLMmrEdvgRVXKh7jffsP_c17hhnQwVGenvtsldZZyXHkajJcXCPkeGnx_MQe10sX2bIP1gIhcXspobptsCk6eJf0awgZl_cSKMhGkQHPrntLAF-pSfjy8ab7tol5JXzrRvaoJAfV010Ab97ZxmkObkvqPP7v4bvu_40QTqz9Tg"/>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div class="font-mono text-label-caps text-[#ffcc00]">STABILITY_REPORT</div>
+<div class="flex items-center gap-2">
+<span class="text-h2 font-black text-white">99.99</span>
+<span class="font-mono text-zinc-500 text-xs">uptime_val</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Readout Section -->
+<section class="p-md md:p-xl">
+<div class="bg-zinc-900 border-t-4 border-l-4 border-white p-lg relative">
+<div class="absolute top-0 right-0 p-4 border-b-2 border-l-2 border-white font-mono text-[10px] text-white">SYSTEM_LOG_1102</div>
+<div class="mb-lg">
+<h2 class="font-display text-h2 text-white uppercase tracking-tighter border-b-2 border-zinc-800 pb-4">CORE_SPECIFICATIONS</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-xl gap-y-4">
+<div class="flex justify-between items-center py-2 border-b border-zinc-800 border-dotted">
+<span class="font-mono text-label-caps text-zinc-400">ENGINE_VERSION</span>
+<span class="font-mono-data text-white font-bold">V4.8.2-PHOENIX</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-zinc-800 border-dotted">
+<span class="font-mono text-label-caps text-zinc-400">MAX_MODEL_PARAM</span>
+<span class="font-mono-data text-white font-bold">1.2 TRILLION</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-zinc-800 border-dotted">
+<span class="font-mono text-label-caps text-zinc-400">SUPPORTED_QUANT</span>
+<span class="font-mono-data text-[#ffcc00] font-bold">FP8, INT4, NF4, GGUF</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-zinc-800 border-dotted">
+<span class="font-mono text-label-caps text-zinc-400">HARDWARE_ABSTRACTION</span>
+<span class="font-mono-data text-secondary-container font-bold">NVIDIA / AMD / TPU</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Footer -->
+<footer class="mt-xl p-md border-t-2 border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-6 bg-zinc-950">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-[#ffcc00]"></div>
+<span class="font-mono text-xs uppercase font-bold tracking-widest">OS-LLM-BENCHMARK // 2024</span>
+</div>
+<div class="flex gap-8">
+<a class="font-mono text-[10px] uppercase text-zinc-500 hover:text-white" href="#">PRIVACY_PROTOCOL</a>
+<a class="font-mono text-[10px] uppercase text-zinc-500 hover:text-white" href="#">API_ENDPOINT</a>
+<a class="font-mono text-[10px] uppercase text-zinc-500 hover:text-white" href="#">SOURCE_REPOSITORY</a>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-none cursor-pointer">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+<div class="w-8 h-8 border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-none cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Bottom Navigation for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#0a0a0a] border-t-2 border-zinc-800 z-50 flex justify-around items-center h-16">
+<button class="flex flex-col items-center gap-1 text-[#ffcc00]">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-mono">DASH</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-500">
+<span class="material-symbols-outlined">memory</span>
+<span class="text-[10px] font-mono">MODELS</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-500">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-mono">STATS</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-mono">USER</span>
+</button>
+</nav>
+<!-- Contextual FAB (Only on Dashboard context) -->
+<button class="fixed bottom-24 right-8 w-16 h-16 bg-[#ffcc00] text-black border-4 border-black neo-shadow flex items-center justify-center z-50 hover:translate-y-[-2px] transition-transform">
+<span class="material-symbols-outlined text-3xl font-bold">add</span>
+</button>
+</body></html>

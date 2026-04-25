@@ -1,0 +1,56 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 220 9% 90%;
+    --card: 0 0% 7%;
+    --card-foreground: 220 9% 92%;
+    --primary: 0 30% 42%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 28% 32%;
+    --crimson: 0 30% 42%;
+    --silver: 220 7% 68%;
+    --muted: 220 6% 14%;
+    --muted-foreground: 220 6% 48%;
+    --accent: 220 6% 42%;
+    --accent-foreground: 220 9% 94%;
+    --border: 0 0% 15%;
+    --ring: 0 28% 42%;
+    --success: 145 18% 38%;
+    --warning: 38 45% 48%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(1100px 700px at 8% -5%, hsl(0 35% 14% / 0.22), transparent 52%),
+      radial-gradient(900px 520px at 96% 8%, hsl(220 10% 12% / 0.18), transparent 48%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(0 0% 3%) 100%);
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .mesh-grid {
+    background-image: linear-gradient(hsl(0 0% 100% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 28%, transparent 100%);
+  }
+  .glow-orb { @apply pointer-events-none fixed -z-10 h-[min(60vw,520px)] w-[min(60vw,520px)] rounded-full blur-3xl; }
+}
