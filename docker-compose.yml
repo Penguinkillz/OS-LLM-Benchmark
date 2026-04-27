@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: osllm
       POSTGRES_DB: osllm
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - osllm_pg:/var/lib/postgresql/data
     healthcheck:
@@ -18,7 +18,7 @@ services:
   redis:
     image: redis:7-alpine
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
 
   worker:
     build:
@@ -30,7 +30,7 @@ services:
       OSLLM_DEVICE: ${OSLLM_DEVICE:-}
       HUGGING_FACE_HUB_TOKEN: ${HUGGING_FACE_HUB_TOKEN:-}
     ports:
-      - "8081:8000"
+      - "127.0.0.1:8081:8000"
     depends_on:
       db:
         condition: service_healthy
@@ -42,4 +42,5 @@ services:
 
 volumes:
   osllm_pg: {}
+
 
